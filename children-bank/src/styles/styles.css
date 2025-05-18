@@ -1,48 +1,252 @@
-body {
-  font-family: Arial, sans-serif;
+/* General Styles */
+:root {
+  --primary: #FFD700;
+  --secondary: #1E90FF;
+  --accent: #FF6B6B;
+  --light: #F8F9FA;
+  --dark: #333333;
+  --success: #28A745;
+}
+
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
 }
 
-.dashboard-container {
-  width: 60%;
-  margin: auto;
-  text-align: center;
+body {
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
+/* Header Styles */
+header {
+  background-color: var(--primary);
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
   display: flex;
-  justify-content: space-around;
-  background: #333;
-  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navbar a,
-.navbar button {
-  color: white;
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--secondary);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
   text-decoration: none;
-  padding: 10px 15px;
-  border: none;
-  cursor: pointer;
-  background: none;
+  color: var(--dark);
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
-input {
-  padding: 10px;
-  margin: 10px;
-  width: 80%;
-}
-
-button {
-  padding: 10px;
-  margin: 10px;
-  cursor: pointer;
-  background: blue;
+nav ul li a:hover {
+  background-color: var(--secondary);
   color: white;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
   border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #187bcd;
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: #e05555;
+  transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--secondary);
+  outline: none;
+}
+
+/* Dashboard Styles */
+.dashboard-header {
+  background-color: var(--secondary);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: var(--secondary);
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+/* Transaction List */
+.transaction-list {
+  list-style: none;
+}
+
+.transaction-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-amount {
+  font-weight: bold;
+}
+
+.transaction-amount.positive {
+  color: var(--success);
+}
+
+.transaction-amount.negative {
+  color: var(--accent);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Animations */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.bounce {
+  animation: bounce 1s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
 }
