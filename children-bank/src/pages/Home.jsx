@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaPiggyBank, FaSignInAlt, FaUserPlus } from "react-icons/fa";
-import "./styles/styles.css";
+import "../styles/styles.css";
 
 const Home = () => {
   return (

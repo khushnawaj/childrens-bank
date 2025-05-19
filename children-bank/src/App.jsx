@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
+import React from "react";
+import Navbar from "./components/Navbar";
+import AppRoutes from "./routes/Router"; // This is your Routes file
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Navbar />
+      <main style={{ flex: 1 }}>
+        <AppRoutes />
+      </main>
+    </div>
   );
 }
 

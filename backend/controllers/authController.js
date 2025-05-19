@@ -6,14 +6,14 @@ const jwt = require('jsonwebtoken');
 // User Registration
 exports.signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, city, Country, profilePic, } = req.body;
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: 'User already exists' });
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    user = new User({ name, email, password: hashedPassword });
+    user = new User({ name, email, password: hashedPassword,city, Country, profilePic, });
     await user.save();
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });

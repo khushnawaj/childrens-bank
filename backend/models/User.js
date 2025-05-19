@@ -4,6 +4,9 @@ const UserSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
+  city:String,
+  Country:String,
+  profilePic:String,
   balance: { type: Number, default: 5000 }, // Default balance ₹5000
   transactions: [
     {
