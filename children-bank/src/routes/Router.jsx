@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
+import ProfilePage from "../pages/userProfile";
+import EditProfile from "../pages/editProfile";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -17,6 +19,8 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      
+      {/* Protected Routes */}
       <Route
         path="/dashboard"
         element={
@@ -25,6 +29,25 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/EditProfile"
+        element={
+          <ProtectedRoute>
+            <EditProfile />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Public Routes */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
