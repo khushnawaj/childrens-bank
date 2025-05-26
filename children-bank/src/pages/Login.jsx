@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaPiggyBank, FaLock, FaEnvelope } from "react-icons/fa";
+import { toast } from 'react-toastify'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -20,10 +21,10 @@ function Login() {
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", formData);
       localStorage.setItem("token", response.data.token);
-      alert("Login successful!");
+      toast.success("Login successful!");
       navigate("/dashboard");
     } catch (error) {
-      alert(error.response?.data?.message || "Login failed");
+      toast.error(error.response?.data?.message || "Login failed");
     }
   };
 

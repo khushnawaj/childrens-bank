@@ -114,7 +114,7 @@ const ProfilePage = () => {
             ${user.balance.toFixed(2)}
           </div>
           <Link
-            to="/add-money"
+            to="/Dashboard"
             style={{
               display: "inline-flex",
               alignItems: "center",

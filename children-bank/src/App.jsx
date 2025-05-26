@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import AppRoutes from "./routes/Router"; // This is your Routes file
+import AppRoutes from "./routes/Router";
 
 function App() {
   return (
