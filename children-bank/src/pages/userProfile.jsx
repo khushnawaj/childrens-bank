@@ -230,7 +230,7 @@ const ProfilePage = () => {
           textAlign: "center"
         }}>
           <Link
-            to="/edit-profile"
+            to="/EditProfile"
             style={{
               display: "inline-flex",
               alignItems: "center",

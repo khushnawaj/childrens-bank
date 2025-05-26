@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaHome, FaPiggyBank, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaPiggyBank, FaSignOutAlt, FaUser } from "react-icons/fa";
 import "../styles/styles.css";
 
 function Navbar() {
@@ -13,18 +13,21 @@ function Navbar() {
   };
 
   return (
-    <nav style={{
-      backgroundColor: "#FFD700",
-      padding: "15px 25px",
-      borderRadius: "0 0 15px 15px",
-      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      position: "sticky",
-      top: 0,
-      zIndex: 100
-    }}>
+    <nav
+      style={{
+        backgroundColor: "#FFD700",
+        padding: "15px 25px",
+        borderRadius: "0 0 15px 15px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
+      }}
+    >
+      {/* Left Side Links */}
       <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
         <Link
           to="/"
@@ -35,7 +38,7 @@ function Navbar() {
             textDecoration: "none",
             color: "#333",
             fontWeight: "bold",
-            fontSize: "1.1rem"
+            fontSize: "1.1rem",
           }}
         >
           <FaHome size={20} color="#1E90FF" /> Home
@@ -51,7 +54,7 @@ function Navbar() {
               textDecoration: "none",
               color: "#333",
               fontWeight: "bold",
-              fontSize: "1.1rem"
+              fontSize: "1.1rem",
             }}
           >
             <FaPiggyBank size={20} color="#1E90FF" /> Dashboard
@@ -59,27 +62,45 @@ function Navbar() {
         )}
       </div>
 
+      {/* Right Side Buttons */}
       {token && (
-        <button
-          onClick={handleLogout}
-          style={{
-            backgroundColor: "#FF6B6B",
-            color: "white",
-            border: "none",
-            borderRadius: "20px",
-            padding: "8px 15px",
-            fontWeight: "bold",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            transition: "all 0.3s ease"
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = "#e05555"}
-          onMouseOut={(e) => e.target.style.backgroundColor = "#FF6B6B"}
-        >
-          <FaSignOutAlt /> Logout
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <Link
+            to="/profile"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+              color: "#333",
+              fontWeight: "bold",
+              fontSize: "1.1rem",
+            }}
+          >
+            <FaUser size={18} color="#1E90FF" /> Profile
+          </Link>
+
+          <button
+            onClick={handleLogout}
+            style={{
+              backgroundColor: "#FF6B6B",
+              color: "white",
+              border: "none",
+              borderRadius: "20px",
+              padding: "8px 15px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              transition: "all 0.3s ease",
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#e05555")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#FF6B6B")}
+          >
+            <FaSignOutAlt /> Logout
+          </button>
+        </div>
       )}
     </nav>
   );
