@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  city:String,
-  Country:String,
-  profilePic:String,
-  balance: { type: Number, default: 5000 }, // Default balance ₹5000
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  city: String,
+  country: String,
+  profilePic: String, // Optional profile picture URL
+  balance: { type: Number, default: 5000 },
   transactions: [
     {
       type: { type: String, enum: ["credit", "debit"], required: true },
@@ -16,6 +16,6 @@ const UserSchema = new mongoose.Schema({
       description: String,
     },
   ],
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model("User", UserSchema);
