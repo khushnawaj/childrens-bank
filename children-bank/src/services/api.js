@@ -1,3 +1,4 @@
+//src/services/api.js
 const API_BASE_URL = "http://localhost:5000/api";
 
 export const signup = async (userData) => {
@@ -48,4 +49,14 @@ export const getTransactions = async (token) => {
     headers: { Authorization: token },
   });
   return response.json();
+};
+
+
+export const getProfile = async (token) => {
+  const res = await axios.get("http://localhost:5000/api/user/profile", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
